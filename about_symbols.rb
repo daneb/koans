@@ -25,7 +25,7 @@ class AboutSymbols < Neo::Koan
 
   def test_method_names_become_symbols
     symbols_as_strings = Symbol.all_symbols.map { |x| x.to_s }
-    puts symbols_as_strings
+    #puts symbols_as_strings
     assert_equal true, symbols_as_strings.include?("test_method_names_become_symbols")
   end
 
@@ -86,13 +86,13 @@ class AboutSymbols < Neo::Koan
 
   def test_symbols_cannot_be_concatenated
     # Exceptions will be pondered further down the path
-    assert_raise(___) do
+    assert_raise(NoMethodError) do
       :cats + :dogs
     end
   end
 
   def test_symbols_can_be_dynamically_created
-    assert_equal "catsdogs", ("cats" + "dogs").to_sym
+    assert_equal :"catsdogs", ("cats" + "dogs").to_sym
   end
 
   # THINK ABOUT IT:
